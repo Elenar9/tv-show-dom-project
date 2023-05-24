@@ -7,15 +7,15 @@ function setup() {
 }
 
 
-function makePageForEpisodes(episodeList) {
+function makePageForEpisodes(allEpisodes) {
   const rootElem = document.getElementById("root");
-  rootElem.textContent = `Got ${episodeList.length} episode(s) All this data is from TVMaze.com`;
+  rootElem.textContent = `Got ${allEpisodes.length} episode(s) All this data is from TVMaze.com`;
 }
 
 //  level 100
 let allEp = document.getElementById("allEp");
 
-episodeList.forEach((el) => {
+allEpisodes.map((el) => {
   let episodeDiv = document.createElement("div"); 
   episodeDiv.classList.add("episodeCard");
 
