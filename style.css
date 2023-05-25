@@ -10,7 +10,7 @@ body {
   display: flex;
     padding: 7px;
     gap: 8px;
-    font-size: larger;
+    font-size: smaller;
 }
 
 #search-count {

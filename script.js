@@ -34,7 +34,7 @@ window.onload = setup;
 //level 200//
 
 function episodesSearch() {
-  let searchInput = document.getElementById("searchInput").value.toLowerCase();
+  let searchInput = document.getElementById("search-input").value.toLowerCase();
   let cardElements = document.getElementsByClassName("episodeCard");
   let hasResults = false;
   let searchCount = 0;
