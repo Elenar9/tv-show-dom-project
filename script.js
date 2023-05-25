@@ -30,3 +30,37 @@ allEpisodes.map((el) => {
 });
 
 window.onload = setup;
+
+//level 200//
+
+function episodesSearch() {
+  let searchInput = document.getElementById("searchInput").value.toLowerCase();
+  let cardElements = document.getElementsByClassName("episodeCard");
+  let hasResults = false;
+  let searchCount = 0;
+
+  for (let i = 0; i < cardElements.length; i++) {
+    let cardElement = cardElements[i];
+
+    let h2Element = cardElement.querySelector("h2");
+    let pElement = cardElement.querySelector("span");
+
+    if (
+      h2Element.innerHTML.toLowerCase().includes(searchInput) ||
+      pElement.innerHTML.toLowerCase().includes(searchInput)
+    ) {
+      cardElement.classList.remove("hide");
+      hasResults = true;
+      searchCount += 1;
+    } else {
+      cardElement.classList.add("hide");
+    }
+  }
+  let searchDiv = document.getElementById("search-count");
+  searchDiv.innerText = `Display ${searchCount} / 73 episodes`;
+  if (!hasResults) {
+    document.getElementById("no-result").style.display = "block";
+  } else {
+    document.getElementById("no-result").style.display = "none";
+  }
+}
