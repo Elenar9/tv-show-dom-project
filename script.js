@@ -1,6 +1,8 @@
 //You can edit ALL of the code here
 let allEpisodes = getAllEpisodes();
 
+console.log(allEpisodes)
+
 function setup() {
   const allEpisodes = getAllEpisodes();
   makePageForEpisodes(allEpisodes);
@@ -16,16 +18,16 @@ function makePageForEpisodes(allEpisodes) {
 let allEp = document.getElementById("allEp");
 
 allEpisodes.map((el) => {
-  let episodeDiv = document.createElement("div"); 
+  let episodeDiv = document.createElement("div");
   episodeDiv.classList.add("episodeCard");
 
-  episodeDiv.innerHTML =`
-  <h2>${el.name} - S${el.season.toString().padStart(2,"0")}E${el.number.toString().padStart(2,"0")}</h2>
+  episodeDiv.innerHTML = `
+  <h2>${el.name} - S${el.season.toString().padStart(2, "0")}E${el.number.toString().padStart(2, "0")}</h2>
   <img src="${el.image.medium}">
     <span>${el.summary}</span>
     `;
 
-    allEp.appendChild(episodeDiv);
+  allEp.appendChild(episodeDiv);
 
 });
 
@@ -35,10 +37,10 @@ window.onload = setup;
 
 function episodesSearch() {
   let searchInput = document.getElementById("search-input").value.toLowerCase();
+  console.log(searchInput)
   let cardElements = document.getElementsByClassName("episodeCard");
   let hasResults = false;
   let searchCount = 0;
-
   for (let i = 0; i < cardElements.length; i++) {
     let cardElement = cardElements[i];
 
@@ -64,3 +66,26 @@ function episodesSearch() {
     document.getElementById("no-result").style.display = "none";
   }
 }
+
+document.getElementById('search-input').addEventListener('keyup', episodesSearch);
+
+
+
+
+
+
+// const box = document.getElementById('wrapper');
+
+// const btn = document.getElementById('show-selector');
+
+// btn.addEventListener('click', function handleClick() {
+//   if (box.style.visibility === 'hidden') {
+//     box.style.visibility = 'visible';
+
+//     btn.textContent = 'Click to hide';
+//   } else {
+//     box.style.visibility = 'hidden';
+
+//     btn.textContent = 'Show div';
+//   }
+// });
